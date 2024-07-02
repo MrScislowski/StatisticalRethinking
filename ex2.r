@@ -106,3 +106,28 @@ posterior <- unstd_posterior / sum(unstd_posterior)
 # So P = (2 + 4) / (2 + 4 + 2) = 6/8 = 3/4
 
 ########## 2H1 ##########
+p_grid <- c(0.1, 0.2)
+prior <- c(1, 1)
+likelihood <- dbinom(x = 1, size = 1, p_grid)
+posterior <- (prior * likelihood) / sum(prior * likelihood)
+
+# print(paste0(
+#   "Probability of another twins is: ",
+#   sum(p_grid * posterior)
+# ))
+
+########## 2H2 ##########
+# print(paste0(
+#   "Probability panda is species A is ",
+#   posterior[1]
+# ))
+
+
+########## 2H3 ##########
+prior <- posterior
+likelihood <- dbinom(x = 0, size = 1, p_grid)
+posterior <- (prior * likelihood) / sum(prior * likelihood)
+# print(paste0(
+#   "Probability panda is species A is ",
+#   posterior[1]
+# ))
