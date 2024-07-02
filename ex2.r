@@ -71,3 +71,38 @@ posterior <- unstd_posterior / sum(unstd_posterior)
 
 
 ########## 2M5 ##########
+
+#     B/B        B/W      W/W       B/B
+# B1B2, B2B1, BW, WB, W1W2, W2W1, B1B2, B2B1
+#
+# if one black is observed there are 5 options
+# 4 of which the other side is also black
+
+########## 2M6 ##########
+
+#     B/B        B/W      W/W
+# B1B2, B2B1, BW, WB, W1W2, W2W1
+
+# but this time the B/W is weighted by a factor of 2. So we cound the BW twice
+# => 4 options in total
+# 2 of which will have black on the other side
+
+
+########## 2M7 ##########
+
+# In this scenario, the first observed side of the first card is black, the first observed side of the second card is white.
+# Let's enumerate how many ways this can occur:
+
+# 1st card is B/B, 2nd card is B/W
+# weight = 2 x 1 = 2
+
+# 1st card is B/B, 2nd card is W/W
+# weight = 2 x 2 = 4
+
+# 1st card is B/W, 2nd card is W/W
+# weight = 1 x 2 = 2
+
+# the first two scenarios give black back, the third does not.
+# So P = (2 + 4) / (2 + 4 + 2) = 6/8 = 3/4
+
+########## 2H1 ##########
