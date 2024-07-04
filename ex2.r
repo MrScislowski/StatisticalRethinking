@@ -131,3 +131,31 @@ posterior <- (prior * likelihood) / sum(prior * likelihood)
 #   "Probability panda is species A is ",
 #   posterior[1]
 # ))
+
+########## 2H4 ##########
+# Notation
+# tA is the event that a test indicates "species A"
+# A is the event that the species is actually A
+# similarly for B
+
+# Information
+# P(tA | A) = 0.8 and thus P(tB | A) = 0.2
+# P(tB | B) = 0.65 and thus P(tA | B) = 0.35
+
+# Bayes theorem states that the probability that it's A or B given testing for A is:
+# P(A | tA) = P(tA | A) * P(A) / P(tA)
+# P(B | tA) = P(tA | B) * P(B) / P(tA)
+
+# we don't really need the value of P(tA) because it's a common denominator,
+# so we'll get the relative probabilities
+
+# If we consider just the results of the test (i.e. flat prior):
+test_only_prob <- c(.5, .5) * c(.8, .35)
+test_only_prob <- test_only_prob / sum(test_only_prob)
+print(paste0("Probability of A based on test alone: ", test_only_prob[1]))
+
+# If we take the birth data into account,
+prior <- posterior
+posterior <- prior * c(.8, .35)
+posterior <- posterior / sum(posterior)
+print(paste0("Probability of A based on births and test: ", posterior[1]))
