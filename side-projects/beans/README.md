@@ -35,8 +35,6 @@ So that's $32 + 32 + 32 = 96$
 
 But then you've overcounted the ways of getting only A, only B, and only C. So $96 - 3 = 93$
 
-And 96/243 is 39.506%.
+And 93/243 is 38.271%.
 
 Doing the trials with 1e8, I get 38.276%.
-
-So I think my calculation is off.
