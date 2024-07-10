@@ -26,7 +26,14 @@ public class Beans {
     }
 
     public static void main(String[] args) {
-        int trialCount = 10000;
+        int trialCount;
+        if (args.length == 0) {
+            System.out.println("No number of trials specified; using 100, 000");
+            trialCount = 100000;
+        } else {
+            trialCount = (int) Double.parseDouble(args[0]);
+            System.out.println("Using number of trials passed in: " + trialCount);
+        }
         int missingCount = 0;
         for (int i = 0; i < trialCount; i++) {
             if (missingBeans()) {
