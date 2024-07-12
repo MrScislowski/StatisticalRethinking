@@ -38,3 +38,16 @@ But then you've overcounted the ways of getting only A, only B, and only C. So $
 And 93/243 is 38.271%.
 
 Doing the trials with 1e8, I get 38.276%.
+
+
+## Commands
+
+Unix: 
+```
+java Beans 1e9 | Out-File -FilePath .\3bean5data.csv -Append -Encoding utf8
+```
+
+Windows:
+```
+java Beans 1e9 | Out-File -FilePath .\3bean5data.csv -Append -Encoding utf8
+```
