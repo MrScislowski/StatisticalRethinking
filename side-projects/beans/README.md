@@ -96,6 +96,21 @@ So clearly some double counting has happened.
 
 In the toy example 1a, $_3C_2$ meant you can have beans a & b or a & c or b & c.
 
+OK, I think I got it:
+
+$$
+P = \frac{_4C_3 \times 3^5 - (_4C_2 \times 2^5 - _4C_1 \times 1^5)}{4^5}
+$$
+
+## Toy problem 2b: $t$ types, stample of $n$
+
+$$
+
+P = \frac{_tC_{t-1} \times (t-1)^n - _tC_{t-2} \times (t-2)^n + _tC_{t-3} \times (t-3)^n - \ldots _tC_1 1^n }{t^n}
+$$
+
+For $t = 5, n = 5$ that yielded 3005, which was confirmed by python full_enumeration
+
 ## Commands
 
 Unix:
