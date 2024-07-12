@@ -3,8 +3,18 @@
 analytic_p <- 93 / 243
 delta_p <- 1 / 243
 
-true_count <- 382748981
-total_count <- 1000000000
+true_count <- sum(c(
+  382748981, 38275176, 38271092, 38273464,
+  38267967, 38275401, 38271099, 38271141,
+  38258013, 38274030, 38266235
+))
+total_count <- sum(c(
+  1000000000, 100000000, 100000000, 100000000,
+  100000000, 100000000, 100000000, 100000000,
+  100000000, 100000000, 100000000
+))
+
+
 
 p_grid <- seq(
   from = analytic_p - delta_p,
@@ -36,6 +46,8 @@ print(
 percent_below <- sum(samples < analytic_p) / length(samples) * 100
 print(
   paste0(
-    "Amount of distribution below analytic p: ", round(percent_below, digits = 2), "%"
+    "Amount of distribution below analytic p: ",
+    round(percent_below, digits = 2),
+    "%"
   )
 )
