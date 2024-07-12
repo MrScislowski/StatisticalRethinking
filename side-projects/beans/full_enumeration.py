@@ -1,30 +1,30 @@
-items = ["a", "b", "c"]
+n_types = 3
+ladle_size = 5
+
+types = [chr(ord("a") + i) for i in range(n_types)]
 
 
 def propagate(letters: str) -> list[str]:
-    return [letters + "a", letters + "b", letters + "c"]
+    return [letters + next for next in types]
 
 
-items = map(propagate, items)
-items = [x for xs in items for x in xs]
+items = types.copy()
+
+for _ in range(ladle_size - 1):
+    items = map(propagate, items)
+    items = [x for xs in items for x in xs]
 
 
-items = map(propagate, items)
-items = [x for xs in items for x in xs]
+def is_incomplete(letters):
+    for bean_type in types:
+        if bean_type not in letters:
+            return True
+    return False
 
 
-items = map(propagate, items)
-items = [x for xs in items for x in xs]
+incomplete_count = 0
+for permutation in items:
+    if is_incomplete(permutation):
+        incomplete_count += 1
 
-
-items = map(propagate, items)
-items = [x for xs in items for x in xs]
-
-print(len(items))
-
-count = 0
-for string in items:
-    if "a" not in string or "b" not in string or "c" not in string:
-        count += 1
-
-print(count, "of", len(items))
+print(incomplete_count, "of", len(items))
