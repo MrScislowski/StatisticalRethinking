@@ -1,4 +1,4 @@
-n_types = 3
+n_types = 4
 ladle_size = 5
 
 types = [chr(ord("a") + i) for i in range(n_types)]

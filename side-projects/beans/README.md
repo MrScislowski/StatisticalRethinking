@@ -8,7 +8,7 @@ I suggested calculating the odds of not getting bean A, and then add that probab
 
 So do you mean supposing bean A is the forbidden bean, then you have to pick 140 non-A beans in a row, with probability (10/11)^140 = 1.6e-6. But then that's favoring a particular bean A, so the probability is about 11 times higher?
 
-## Toy problem
+## Toy problem 1a: 3 types, sample of 5
 
 Suppose we have 3 bean types (A, B, C), and our ladle is smaller - it picks up just 5 beans.
 
@@ -39,15 +39,66 @@ And 93/243 is 38.271%.
 
 Doing the trials with 1e8, I get 38.276%.
 
+## Toy problem 1b: 3 types, sample of 6
+
+$$
+P = \frac{\text{num ways of picking from 2 types}}{\text{num ways of picking from 3 types}}
+$$
+
+$$
+P =   \frac{_3C_2 \times 2^6 - _3C_1 }{3^6}
+$$
+
+$$
+P = \frac{189}{729}
+$$
+
+## Toy problem 1c: 3 types, sample of $n$
+
+$$
+P = \frac{_3C_2 \times 2^n - _3C_1}{3^n}
+$$
+
+## Toy problem 2a: 4 types, sample of 5
+
+Naively assuming the formula from before works...
+
+$$
+P = \frac{_4C_3 \times 3^5 - _3C_2}{4^5}
+$$
+
+$$
+P = \frac{4 \times 243 - 3}{1024}
+$$
+
+$$
+P = \frac{969}{1024}
+$$
+
+... nope...
+the simulation gives 784.
+
+How about:
+
+$$
+P = \frac{_4C_3 \times 3^5 - _3C_2 \times 2^5}{4^5}
+$$
+
+... that gives a numerator of 876
 
 ## Commands
 
-Unix: 
+Unix:
+
 ```
 java Beans 1e9 | Out-File -FilePath .\3bean5data.csv -Append -Encoding utf8
 ```
 
 Windows:
+
 ```
 java Beans 1e9 | Out-File -FilePath .\3bean5data.csv -Append -Encoding utf8
 ```
+
+$$
+$$
