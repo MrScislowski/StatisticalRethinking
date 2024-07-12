@@ -22,20 +22,15 @@ p_grid <- seq(
 )
 likelihood <- dbinom(true_count, size = total_count, prob = p_grid)
 
-## Make a plot
-# plot(p_grid, likelihood,
-#   type = "b", # nolint: commented_code_linter.
-#   xlab = "chance of missing bean types",
-#   ylab = "probability"
-# )
-# abline(v = analytic_p, col = "red")
+
 
 ## Calculate a confidence interval aka credible interval
 samples <- sample(x = p_grid, prob = likelihood, replace = TRUE, size = 1e4)
 
 print("95% credible interval: ")
-calc_quantiles <- quantile(x = samples, probs = c(.05 / 2, 1 - .05 / 2))
-print(calc_quantiles)
+quantiles95 <- quantile(x = samples, probs = c(.05 / 2, 1 - .05 / 2))
+quantiles995 <- quantile(x = samples, probs = c(.005 / 2, 1 - .005 / 2))
+print(quantiles95)
 print(
   paste0(
     "analytic prediction: ", analytic_p
@@ -51,3 +46,19 @@ print(
     "%"
   )
 )
+
+
+plot_grid <- seq(from = quantiles995[1],
+  to = quantiles995[2],
+  length.out = 1000)
+plot_likelihood <- dbinom(true_count, size = total_count, prob = plot_grid)
+
+## Make a plot
+plot(plot_grid, plot_likelihood,
+  type = "b",
+  xlab = "chance of missing bean types",
+  ylab = "probability"
+)
+abline(v = analytic_p, col = "red")
+abline(v = quantiles95[1], col= "green")
+abline(v = quantiles95[2], col= "green")
