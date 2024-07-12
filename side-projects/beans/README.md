@@ -86,6 +86,16 @@ $$
 
 ... that gives a numerator of 876
 
+From first principles:
+
+$$
+P_{\text{numerator}} = _4C_3 * 3^5 + _4C_2 * 2^5 + _4C_1 \times 1^5 = 1168
+$$
+
+So clearly some double counting has happened.
+
+In the toy example 1a, $_3C_2$ meant you can have beans a & b or a & c or b & c.
+
 ## Commands
 
 Unix:
