@@ -1,8 +1,8 @@
 import java.util.Random;
 
 public class Beans {
-    private static int LADLE_SIZE = 140;
-    private static int BEAN_TYPE_COUNT = 11;
+    private static int LADLE_SIZE = 5;
+    private static int BEAN_TYPE_COUNT = 3;
 
     private static boolean[] beanTypeUsed = new boolean[BEAN_TYPE_COUNT];
 
