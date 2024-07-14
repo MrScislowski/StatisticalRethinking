@@ -48,9 +48,11 @@ print(
 )
 
 
-plot_grid <- seq(from = quantiles995[1],
+plot_grid <- seq(
+  from = quantiles995[1],
   to = quantiles995[2],
-  length.out = 1000)
+  length.out = 1000
+)
 plot_likelihood <- dbinom(true_count, size = total_count, prob = plot_grid)
 
 ## Make a plot
@@ -60,5 +62,23 @@ plot(plot_grid, plot_likelihood,
   ylab = "probability"
 )
 abline(v = analytic_p, col = "red")
-abline(v = quantiles95[1], col= "green")
-abline(v = quantiles95[2], col= "green")
+abline(v = quantiles95[1], col = "green")
+abline(v = quantiles95[2], col = "green")
+
+## the answer to the original question
+numerator <- choose(11, 10) * 10^140 -
+  choose(11, 9) * 9^140 +
+  choose(11, 8) * 8^140 -
+  choose(11, 7) * 7^140 +
+  choose(11, 6) * 6^140 -
+  choose(11, 5) * 5^140 +
+  choose(11, 4) * 4^140 -
+  choose(11, 3) * 3^140 +
+  choose(11, 2) * 2^140 -
+  choose(11, 1) * 1^140
+
+denominator <- 11^140
+
+print(
+  paste0(numerator, " / ", denominator, " = ", numerator / denominator)
+)
