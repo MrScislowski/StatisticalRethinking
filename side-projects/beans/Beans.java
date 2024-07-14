@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Beans {
     private static int LADLE_SIZE = 140;
     private static int BEAN_TYPE_COUNT = 11;
@@ -10,8 +12,9 @@ public class Beans {
             beanTypeUsed[i] = false;
         }
 
+        Random random = new Random();
         for (int i = 0; i < LADLE_SIZE; i++) {
-            int r = (int) (Math.random() * BEAN_TYPE_COUNT);
+            int r = random.nextInt(BEAN_TYPE_COUNT);
             if (beanTypeUsed[r]) {
                 continue;
             } else {
