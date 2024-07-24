@@ -111,6 +111,37 @@ $$
 
 For $t = 5, n = 5$ that yielded 3005, which was confirmed by python full_enumeration
 
+## Is it really right? Not squaring with intuition...
+
+In R I ran
+
+```r
+numerator <- choose(11, 10) * 10^140 -
+  choose(11, 9) * 9^140 +
+  choose(11, 8) * 8^140 -
+  choose(11, 7) * 7^140 +
+  choose(11, 6) * 6^140 -
+  choose(11, 5) * 5^140 +
+  choose(11, 4) * 4^140 -
+  choose(11, 3) * 3^140 +
+  choose(11, 2) * 2^140 -
+  choose(11, 1) * 1^140
+
+denominator <- 11^140
+
+fancy_answer <- numerator / denominator
+easy_first_approximation <- 11 * (10 / 11)^140
+
+print(
+  paste0(
+    fancy_answer, " / ", easy_first_approximation,
+    " x 100 = ", fancy_answer / easy_first_approximation * 100
+  )
+)
+```
+
+I expected the fancy answer to be slightly greater than the easy first approximation (since the first approximation was meant to overlook missing 2 beans, 3 beans, etc). But I guess maybe it double+ counted many of the combinations.
+
 ## Commands
 
 Unix:

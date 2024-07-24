@@ -28,5 +28,13 @@ where $C(n, k)$ is the number of $k$-combinations of a set of $n$ elements, give
 This evaluates to
 
 $$
-P \approx 1.764 \times 10^{-5}
+P \approx 1.763664 \times 10^{-5}
 $$
+
+Using an approximate non combinatorical approach,
+
+$$
+P = \frac{11 \cdot 10^{140}}{11^{140}} \approx 1.763668 \times 10^{-5}
+$$
+
+The combinatorial (exact) answer is 99.9998\% the size of the approximate answer.
