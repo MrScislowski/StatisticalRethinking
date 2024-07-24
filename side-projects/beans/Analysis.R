@@ -88,6 +88,11 @@ numerator <- choose(11, 10) * 10^140 -
 
 denominator <- 11^140
 
+fancy_answer <- numerator / denominator
+easy_first_approximation <- 11 * (10 / 11)^140
+
 print(
-  paste0(numerator, " / ", denominator, " = ", numerator / denominator)
+  paste0(fancy_answer, " / ", easy_first_approximation, 
+  " x 100 = ", fancy_answer / easy_first_approximation * 100)
 )
+
